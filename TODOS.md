@@ -16,7 +16,7 @@
   - Playwright E2E 7개. vitest 136개.
 
 ### P6-2 마무리 (2D 풍동)
-- [ ] **CI 연결**: `.github/workflows/ci.yml` frontend 작업에 `npx playwright install --with-deps chromium && npm run e2e`를 추가하고, `deploy-pages.yml`에도 같은 단계를 넣어 실패하면 배포를 막는다. (eng review D9)
+- [x] **CI 연결**: `ci.yml` frontend 작업과 `deploy-pages.yml`(빌드 전)에 `npx playwright install --with-deps chromium && npm run e2e` 단계를 넣었다. deploy는 E2E가 실패하면 빌드·배포를 하지 않는다. (eng review D9)
 - [ ] **실제 GPU 확인**: RTX 4050 Chrome에서 lab.html을 열어 스텝/초를 재고 768×256 격자로 도는지 본다. SwiftShader는 37~85 스텝/초라 자동으로 작은 격자로 바뀐다.
 - [ ] **시도 1회 끝까지 돌려 보기**: α 2°·8°·14° 기록 → 설명 → CSV 내려받기. 시도 길이는 정착 8 c/u + 측정 창 2 × 6 c/u이고, 와류 주기를 잡으려고 원래 설계의 4 c/u보다 늘렸다. 실제 걸리는 시간을 잰다.
 - [ ] **D-2 진행/중단 판정**: α -5~20° 곡선을 그려 기울기가 2π의 30~90%(현재 41%)인지, 와류 흘림 시작이 6~14°인지 확인한다. 실패하면 "사전계산 재생" 대안을 다시 묻는다(eng review D10).

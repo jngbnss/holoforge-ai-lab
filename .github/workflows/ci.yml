@@ -47,3 +47,7 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Playwright E2E (실험실 WebGL2 해석기·화면 흐름, SwiftShader)
+        run: |
+          npx playwright install --with-deps chromium
+          npm run e2e
