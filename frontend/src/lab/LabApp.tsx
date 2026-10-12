@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, lazy, Suspense, useEffect, useState } from "react";
 import styles from "./Lab.module.css";
 import { type DeviceCaps, probeDevice, tabSupport } from "./core/device";
 import { LAB_TABS, type LabTab, labTabHash, parseLabTab } from "./tabs";
@@ -13,8 +13,12 @@ function useLabTab(): LabTab {
   return tab;
 }
 
-/** 탭별 화면. 아직 구현 전인 탭은 설명만 보여 준다. */
-const TAB_VIEWS: Partial<Record<LabTab, () => ReactNode>> = {};
+const Tunnel2DView = lazy(() => import("./ui/Tunnel2DView"));
+
+/** 탭별 화면(필요할 때 불러옴). 아직 구현 전인 탭은 설명만 보여 준다. */
+const TAB_VIEWS: Partial<Record<LabTab, () => ReactNode>> = {
+  tunnel2d: () => <Tunnel2DView />,
+};
 
 function TabBody({ tab, caps }: { tab: LabTab; caps: DeviceCaps | null }) {
   const info = LAB_TABS.find((t) => t.id === tab)!;
@@ -30,7 +34,12 @@ function TabBody({ tab, caps }: { tab: LabTab; caps: DeviceCaps | null }) {
     );
   }
   const View = TAB_VIEWS[tab];
-  if (View) return <View />;
+  if (View)
+    return (
+      <Suspense fallback={<div className={styles.notice}>불러오는 중…</div>}>
+        <View />
+      </Suspense>
+    );
   return (
     <div className={styles.notice} data-testid="tab-placeholder">
       <strong>{info.label}</strong>

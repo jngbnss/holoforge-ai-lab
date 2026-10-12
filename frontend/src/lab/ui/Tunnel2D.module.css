@@ -1,0 +1,186 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 12px;
+  padding: 12px;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tunnel {
+  min-width: 0;
+}
+
+.canvasWrap {
+  position: relative;
+}
+
+.canvas {
+  width: 100%;
+  aspect-ratio: 3 / 1;
+  display: block;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #000;
+  image-rendering: pixelated;
+}
+
+.overlay {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgb(13 17 23 / 88%);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.toolbar button[aria-pressed="true"] {
+  border-color: var(--accent);
+}
+
+.warn {
+  margin: 8px 0 0;
+  padding: 6px 8px;
+  border: 1px solid #d2992266;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #e3b341;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  font-size: 13px;
+  overflow: auto;
+}
+
+.steps {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  padding: 2px 8px;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+.steps li[data-on="true"] {
+  border-color: var(--accent);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.readout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.readout div {
+  padding: 6px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.readout b {
+  display: block;
+  margin-top: 2px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.chart {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+}
+
+.tutor {
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px dashed #30363d;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+.reset {
+  align-self: flex-start;
+  font-size: 12px;
+}
+
+textarea,
+input,
+select,
+button {
+  font: inherit;
+  color: var(--text);
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

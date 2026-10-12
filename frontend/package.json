@@ -10,7 +10,9 @@
     "test": "vitest run",
     "preview": "vite preview",
     "gen:gesture-cases": "tsx scripts/gen-gesture-cases.ts",
-    "gen:gesture-samples": "tsx scripts/gen-gesture-samples.ts"
+    "gen:gesture-samples": "tsx scripts/gen-gesture-samples.ts",
+    "e2e": "playwright test",
+    "bench:dfg": "tsx scripts/bench-dfg.ts"
   },
   "dependencies": {
     "@dimforge/rapier3d": "^0.20.0",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@dimforge/rapier3d-compat": "^0.20.0",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

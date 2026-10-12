@@ -21,3 +21,7 @@ datasets/gestures/raw/
 .idea/
 .vscode/
 .DS_Store
+
+# Playwright
+frontend/test-results/
+frontend/playwright-report/
