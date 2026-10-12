@@ -139,6 +139,9 @@ export default function App() {
             </a>
           ))}
         </nav>
+        <a className={styles.labLink} href="./lab.html" data-testid="lab-link">
+          공학 실험실
+        </a>
       </header>
       <main className={styles.stage}>
         <GearboxScene onCanvas={setCanvas} />

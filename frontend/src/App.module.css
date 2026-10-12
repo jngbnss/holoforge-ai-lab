@@ -128,3 +128,9 @@
     width: 100%;
   }
 }
+
+.labLink {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 13px;
+}
