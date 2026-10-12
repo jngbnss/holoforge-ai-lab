@@ -185,8 +185,8 @@ holoforge-ai-lab/
 
 | ID | 작업 | 산출물 | 스모크 테스트 | 상태 | 비고 |
 |---|---|---|---|---|---|
-| P6-1 | 실험실 페이지 뼈대 | lab.html, Vite 다중 입력, 탭 6개, 기기 검사(WebGL2·float·WebGPU), 기어박스 앱 링크 | build 통과, 브라우저에서 탭 전환·기기 검사 표시, 기어박스 앱 회귀 없음 | 진행중 | |
-| P6-2 | 2D 풍동 | D2Q9 LBM(CPU 기준 + WebGL2), NACA0012, 받음각, C_L/C_D, 수렴 판정, 기록·CSV | CPU DFG 2D-1 C_D ±10%, GPU↔CPU 일치, 브라우저 흐름 표시 | 대기 | |
+| P6-1 | 실험실 페이지 뼈대 | lab.html, Vite 다중 입력, 탭 6개, 기기 검사(WebGL2·float·WebGPU), 기어박스 앱 링크 | build 통과, 브라우저에서 탭 전환·기기 검사 표시, 기어박스 앱 회귀 없음 | 완료 | lab.html 별도 빌드(lab 청크만), 탭 6개 해시 전환, SwiftShader에서 WebGL2·float ○·WebGPU × → 3D 풍동 "지원 안 함" 표시, 기어박스 앱 링크·모드 7개 유지, vitest 125 |
+| P6-2 | 2D 풍동 | D2Q9 LBM(CPU 기준 + WebGL2), NACA0012, 받음각, C_L/C_D, 수렴 판정, 기록·CSV | CPU DFG 2D-1 C_D ±10%, GPU↔CPU 일치, 브라우저 흐름 표시 | 진행중 | |
 | P6-3 | 복셀 코어 + F1 불러오기 | GLB(meshopt) 로드, 표면 복셀화 + 외부 채우기로 닫힌 부피, 3D 복셀 보기 | F1 복셀화 결과 닫힌 부피, vitest | 대기 | |
 | P6-4 | 응력 | 복셀 hex8 선형탄성 FEA, PCG, 고정면·하중, von Mises 색 | 외팔보 끝 처짐 vs 이론 ±10% | 대기 | |
 | P6-5 | 진동 | 고유진동(부분공간 반복), 모드 1~3 애니메이션 | 외팔보 1차 고유진동수 vs 이론 ±10% | 대기 | |
